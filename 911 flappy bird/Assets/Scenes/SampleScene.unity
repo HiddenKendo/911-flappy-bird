@@ -622,6 +622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   rotationSpeed: 5
+  rbody: {fileID: 948591773}
 --- !u!4 &948591772
 Transform:
   m_ObjectHideFlags: 0
@@ -1484,6 +1485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d22e1f326e98fa46ac900930847fcec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 3
+  maxTime: 0.75
   heightRange: 2
   pipeObj: {fileID: 1308796001623025237, guid: 3d2712c5f45f6d74296a33d2d1a39929, type: 3}

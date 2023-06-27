@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PipeSpawner : MonoBehaviour
 {
-    [SerializeField] private float maxTime = 3f;
+    //[SerializeField] private float maxTime = 3f; game is too easy spawn more
+    [SerializeField] private float maxTime = 0.75f;
     [SerializeField] private float heightRange = 2f;
     [SerializeField] private GameObject pipeObj;
 
