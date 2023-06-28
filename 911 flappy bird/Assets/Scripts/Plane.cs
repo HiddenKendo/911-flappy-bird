@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Plane : MonoBehaviour
 {
@@ -82,16 +81,20 @@ public class Plane : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.constraints = RigidbodyConstraints2D.None; // make plane bounce around
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Pipe")) //if the collision happened with a pipe
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Pipe") || collision.gameObject.layer == LayerMask.NameToLayer("Wall")) //if the collision happened with a pipe
         {
+            rb.constraints = RigidbodyConstraints2D.None; // make plane bounce around
+
             //explosion
             GameObject obj = Instantiate(explosionObj, transform.position, Quaternion.identity);
             Destroy(obj, 5f); //destroy explosion after 5 seconds
 
-            rb.AddForce(new Vector2(1, 2), ForceMode2D.Impulse); //push plane to upper right so it doesnt stay still
+            rb.AddForce(new Vector2(Random.Range(2, 5), Random.Range(2, 5)), ForceMode2D.Impulse); //push plane to upper right so it doesnt stay still
+            GameManager.instance.GameOver();
         }
 
-        GameManager.instance.GameOver();
+        PipeSpawner ps = FindObjectOfType<PipeSpawner>();
+        ps.maxTime = 0.1f;
+        ps.NineEleven();
     }
 }
