@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2374fabd0cdb9904691e834dad87acf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionObj: {fileID: 2740955728115922781, guid: 647f5c82739a04648b1dead7cbe65747, type: 3}
   jumpForce: 5
   rotationSpeed: 5
 --- !u!4 &948591772
@@ -1079,6 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 292962618}
+  gameOver: 0
 --- !u!4 &1656640876
 Transform:
   m_ObjectHideFlags: 0

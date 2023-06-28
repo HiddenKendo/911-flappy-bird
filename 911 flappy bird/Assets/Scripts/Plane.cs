@@ -6,6 +6,7 @@ using System;
 public class Plane : MonoBehaviour
 {
     Rigidbody2D rb;
+    [SerializeField] private GameObject explosionObj;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float rotationSpeed = 5f;
 
@@ -22,6 +23,8 @@ public class Plane : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.gameOver) return;
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             //rb.velocity = Vector2.up * jumpForce * Mathf.Sign(rb.gravityScale); //Mathf.Sign(rb.gravityScale) return 1 or -1 make it go flip flip
@@ -79,8 +82,15 @@ public class Plane : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.constraints = RigidbodyConstraints2D.None;
-        this.enabled = false;
+        rb.constraints = RigidbodyConstraints2D.None; // make plane bounce around
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Pipe")) //if the collision happened with a pipe
+        {
+            //explosion
+            GameObject obj = Instantiate(explosionObj, transform.position, Quaternion.identity);
+            Destroy(obj, 5f); //destroy explosion after 5 seconds
+
+            rb.AddForce(new Vector2(1, 2), ForceMode2D.Impulse); //push plane to upper right so it doesnt stay still
+        }
 
         GameManager.instance.GameOver();
     }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] private GameObject gameOverCanvas;
+    public bool gameOver = false;
 
     private void Awake()
     {
@@ -27,7 +28,10 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (gameOver) return;
+
         gameOverCanvas.SetActive(true);
+        gameOver = true;
     }
 
     public void RestartGame()
