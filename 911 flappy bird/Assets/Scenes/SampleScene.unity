@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAMEOVER NOOB
+  m_text: "HISTORICALLY \nINACCURATE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ddff7ce529f2c6847bd0224a1cbac876, type: 2}
   m_sharedMaterial: {fileID: -7999379337340628045, guid: ddff7ce529f2c6847bd0224a1cbac876, type: 2}
