@@ -622,7 +622,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   rotationSpeed: 5
-  rbody: {fileID: 948591773}
 --- !u!4 &948591772
 Transform:
   m_ObjectHideFlags: 0
@@ -806,7 +805,7 @@ GameObject:
   - component: {fileID: 1148238026}
   - component: {fileID: 1148238025}
   - component: {fileID: 1148238024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,9 +1259,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.0000002, y: 2.0000005}
-  m_Direction: 0
+  m_Offset: {x: 0.052511424, y: -0.30633834}
+  m_Size: {x: 7.041491, y: 0.7310229}
+  m_Direction: 1
 --- !u!212 &1903072754
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1304,7 +1303,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc3d9686398e97740b05eaec25042e8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1322,14 +1321,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903072750}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 948591772}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106041059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1340,7 @@ GameObject:
   - component: {fileID: 2106041061}
   - component: {fileID: 2106041060}
   - component: {fileID: 2106041062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,6 +1484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d22e1f326e98fa46ac900930847fcec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 0.75
+  maxTime: 1
   heightRange: 2
   pipeObj: {fileID: 1308796001623025237, guid: 3d2712c5f45f6d74296a33d2d1a39929, type: 3}

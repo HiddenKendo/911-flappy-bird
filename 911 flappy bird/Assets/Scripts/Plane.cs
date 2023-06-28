@@ -8,26 +8,35 @@ public class Plane : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private Rigidbody2D rbody;
 
+    float speedToChangeTo;
+    float currentVelocity;
+
+    bool changingSpeed = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rbody.gravityScale = 1.5f;
+        rb.gravityScale = 1.5f;
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity = Vector2.up * jumpForce * Math.Sign(rbody.gravityScale); // (rbody.gravityScale) divide by 1.5f to get the polarity of the gravity
+            //rb.velocity = Vector2.up * jumpForce * Mathf.Sign(rb.gravityScale); //Mathf.Sign(rb.gravityScale) return 1 or -1 make it go flip flip
+            speedToChangeTo = jumpForce * Mathf.Sign(rb.gravityScale);
+            currentVelocity = rb.velocity.y;
+            changingSpeed = true;
         }
 
-
-        if (rbody.gravityScale > 1.5f)
+        if(changingSpeed && rb.velocity.y < (speedToChangeTo - 0.01f))
         {
-            rbody.gravityScale -= 0.1f;
+            StartCoroutine(ChangeSpeed());
+        }
+        else
+        {
+            changingSpeed = false;
         }
 
         /*
@@ -46,14 +55,26 @@ public class Plane : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            rbody.gravityScale = 10f;
+            rb.gravityScale = 8f;
         }
 
+        if (rb.gravityScale > 1.5f)
+        {
+            rb.gravityScale -= 0.1f;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * rotationSpeed); //rotate according to speed
     }
 
-    private void FixedUpdate()
+    IEnumerator ChangeSpeed()
     {
-        transform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * rotationSpeed);
+        var t = 0.0f;
+        while (t <= 1.0f)
+        {
+            t += 8f * Time.deltaTime;
+            rb.velocity = new Vector2(0, Mathf.Lerp(rb.velocity.y, speedToChangeTo, t));
+            yield return null;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
