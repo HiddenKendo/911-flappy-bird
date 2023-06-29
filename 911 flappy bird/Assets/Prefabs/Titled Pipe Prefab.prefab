@@ -196,10 +196,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c828514cdadc94a896b8a0344b19cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRot: 30
-  minRot: -30
-  maxSpeed: 20
-  minSpeed: -20
+  maxRot: 20
+  minRot: -20
+  maxSpeed: 10
+  minSpeed: -10
 --- !u!1 &6968555084799644985
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1308796001623025226}
   - component: {fileID: 1308796001623025227}
   - component: {fileID: 1870864579254193773}
-  - component: {fileID: -2395046860915560521}
+  - component: {fileID: 2086494244516409295}
   m_Layer: 0
   m_Name: ScrollingPipe Prefab
   m_TagString: Untagged
@@ -72,7 +72,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2395046860915560521
+--- !u!114 &2086494244516409295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

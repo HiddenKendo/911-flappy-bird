@@ -8,19 +8,19 @@ public class TiltPipe : MonoBehaviour
     [SerializeField] private float minRot;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float minSpeed;
-
+    
     private float rotationSpeed;
     private float rotationAngle;
 
-    void Start()
+    private void Start()
     {
         rotationAngle = Random.Range(minRot, maxRot);
         rotationSpeed = Random.Range(minSpeed, maxSpeed);
+        Debug.Log(rotationSpeed);
         transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
