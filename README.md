@@ -5,7 +5,7 @@ Alpha 2:
 - Increased Spawn Delay from 0.9 to 1.2
 - Changed sprite for green towers
 - Green towers can now move down
-- Increased gravity change with LeftCtrl
+- Increased gravity change with LeftCtrl from 8 to 10
 
 Alpha 1:  
 - Decreased Spawn Delay from 1 to 0.9
