@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class TiltPipe : MonoBehaviour
 {
-    [SerializeField] private float maxRot;
-    [SerializeField] private float minRot;
-    [SerializeField] private float maxSpeed;
-    [SerializeField] private float minSpeed;
+    private float maxRot = 20;
+    private float maxSpeed = 10;
     
     private float rotationSpeed;
     private float rotationAngle;
 
     private void Start()
     {
-        rotationAngle = Random.Range(minRot, maxRot);
-        rotationSpeed = Random.Range(minSpeed, maxSpeed);
-        Debug.Log(rotationSpeed);
+        rotationAngle = Random.Range(-maxRot, maxRot);
+        rotationSpeed = Random.Range(-maxSpeed, maxSpeed);
+
         transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);
     }
 

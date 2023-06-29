@@ -1488,7 +1488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heightRange: 2
   pipeObj: {fileID: 1308796001623025237, guid: 3d2712c5f45f6d74296a33d2d1a39929, type: 3}
-  tiltedPipeObj: {fileID: 1308796001623025237, guid: 75105b3f2c8b7564389a30347de6d42f, type: 3}
+  scrollPipeObj: {fileID: 1308796001623025237, guid: 9b10b267a7d75fe4f809934cf51d78f5, type: 3}
   maxTime: 0.9
   minSpeed: 7.5
   maxSpeed: 10

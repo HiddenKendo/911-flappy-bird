@@ -6,22 +6,25 @@ using UnityEngine;
 
 public class ScrollPipe : MonoBehaviour
 {
-    public float scrollSpeed = 1f;
-    private float screenHeight;
+    float scrollSpeed = 1f;
+    private float height;
+
+    Rigidbody2D rb;
 
     private void Start()
     {
-        screenHeight = Camera.main.orthographicSize;
+        rb = GetComponent<Rigidbody2D>();
+        height = 12; //dont change this number
+
+        rb.velocity = new Vector2(rb.velocity.x, scrollSpeed); //change only the y
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.up * scrollSpeed * Time.deltaTime);
-
-        if (transform.position.y >= screenHeight)
+        if (transform.position.y >= height)
         {
             // Set the object's position to the bottom of the screen
-            transform.position = new Vector3(transform.position.x, -screenHeight, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -height, transform.position.z);
         }
     }
 }

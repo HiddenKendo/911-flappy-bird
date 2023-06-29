@@ -6,11 +6,9 @@ public class PipeSpawner : MonoBehaviour
 {
     //[SerializeField] private float maxTime = 3f; game is too easy spawn more
     [SerializeField] private float heightRange;
-    [SerializeField] private GameObject pipeObj;
-    [SerializeField] private GameObject tiltedPipeObj;
-    private int randomizer;
+    [SerializeField] private GameObject pipeObj, scrollPipeObj;
 
-    public float maxTime;
+    public float maxTime; //public so it can be made faster when game over
 
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
@@ -35,26 +33,38 @@ public class PipeSpawner : MonoBehaviour
 
     private void SpawnPipe()
     {
-
         Vector3 spawnPos = transform.position + new Vector3(0, Random.Range(-heightRange, heightRange));
-        randomizer = Random.Range(0, 100);
-        if (randomizer < 60)
+
+        GameObject pipe;
+
+        int random = Random.Range(0, 100);
+        if(random < 80) //spawn the pipe
         {
-            GameObject pipe = Instantiate(pipeObj, spawnPos, Quaternion.identity);
+            pipe = Instantiate(pipeObj, spawnPos, Quaternion.identity);
             MovePipe mp = pipe.GetComponent<MovePipe>();
             mp.pipeSpeed = Random.Range(minSpeed, maxSpeed);
 
-            Destroy(pipe, 10f);
+            int randomizer = Random.Range(0, 100);
+            if (randomizer < 30)
+            {
+                //make it a tilted tower
+                pipe.gameObject.AddComponent<TiltPipe>();
+
+                SpriteRenderer[] towerSprite = pipe.GetComponentsInChildren<SpriteRenderer>(); //get the sprite renderers of all the children
+                foreach (SpriteRenderer item in towerSprite) //change the colour for each sprite renderer it found
+                {
+                    item.color = new Color32(195, 255, 255, 255);
+                }
+            }
         }
         else
         {
-            GameObject pipe = Instantiate(tiltedPipeObj, spawnPos, Quaternion.identity);
+            //scroll pipe
+            pipe = Instantiate(scrollPipeObj, spawnPos, Quaternion.identity);
             MovePipe mp = pipe.GetComponent<MovePipe>();
             mp.pipeSpeed = Random.Range(minSpeed, maxSpeed);
-
-            Destroy(pipe, 10f);
         }
-        
+        Destroy(pipe, 10f);
     }
 
     public void NineEleven()
