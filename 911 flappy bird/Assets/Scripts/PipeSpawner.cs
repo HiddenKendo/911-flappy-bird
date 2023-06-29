@@ -7,6 +7,8 @@ public class PipeSpawner : MonoBehaviour
     //[SerializeField] private float maxTime = 3f; game is too easy spawn more
     [SerializeField] private float heightRange;
     [SerializeField] private GameObject pipeObj;
+    [SerializeField] private GameObject tiltedPipeObj;
+    private int randomizer;
 
     public float maxTime;
 
@@ -33,13 +35,26 @@ public class PipeSpawner : MonoBehaviour
 
     private void SpawnPipe()
     {
+
         Vector3 spawnPos = transform.position + new Vector3(0, Random.Range(-heightRange, heightRange));
-        GameObject pipe = Instantiate(pipeObj, spawnPos, Quaternion.identity);
+        randomizer = Random.Range(0, 100);
+        if (randomizer < 60)
+        {
+            GameObject pipe = Instantiate(pipeObj, spawnPos, Quaternion.identity);
+            MovePipe mp = pipe.GetComponent<MovePipe>();
+            mp.pipeSpeed = Random.Range(minSpeed, maxSpeed);
 
-        MovePipe mp = pipe.GetComponent<MovePipe>();
-        mp.pipeSpeed = Random.Range(minSpeed, maxSpeed);
+            Destroy(pipe, 10f);
+        }
+        else
+        {
+            GameObject pipe = Instantiate(tiltedPipeObj, spawnPos, Quaternion.identity);
+            MovePipe mp = pipe.GetComponent<MovePipe>();
+            mp.pipeSpeed = Random.Range(minSpeed, maxSpeed);
 
-        Destroy(pipe, 10f);
+            Destroy(pipe, 10f);
+        }
+        
     }
 
     public void NineEleven()

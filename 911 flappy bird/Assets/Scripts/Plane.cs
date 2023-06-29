@@ -18,6 +18,7 @@ public class Plane : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 1.5f;
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Pipe"), LayerMask.NameToLayer("Pipe"), true);
     }
 
     private void Update()
@@ -84,6 +85,7 @@ public class Plane : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Pipe") || collision.gameObject.layer == LayerMask.NameToLayer("Wall")) //if the collision happened with a pipe
         {
             rb.constraints = RigidbodyConstraints2D.None; // make plane bounce around
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Pipe"), LayerMask.NameToLayer("Pipe"), false);
 
             //explosion
             GameObject obj = Instantiate(explosionObj, transform.position, Quaternion.identity);
