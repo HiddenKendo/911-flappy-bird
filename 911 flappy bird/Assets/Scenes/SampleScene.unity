@@ -1489,6 +1489,6 @@ MonoBehaviour:
   heightRange: 2
   pipeObj: {fileID: 1308796001623025237, guid: 3d2712c5f45f6d74296a33d2d1a39929, type: 3}
   scrollPipeObj: {fileID: 1308796001623025237, guid: 9b10b267a7d75fe4f809934cf51d78f5, type: 3}
-  maxTime: 0.9
+  maxTime: 1.2
   minSpeed: 7.5
   maxSpeed: 10

@@ -58,7 +58,7 @@ public class Plane : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            rb.gravityScale = 8f;
+            rb.gravityScale = 10f;
         }
 
         if (rb.gravityScale > 1.5f)
