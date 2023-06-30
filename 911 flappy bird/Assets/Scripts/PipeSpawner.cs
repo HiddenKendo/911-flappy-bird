@@ -53,7 +53,7 @@ public class PipeSpawner : MonoBehaviour
                 SpriteRenderer[] towerSprite = pipe.GetComponentsInChildren<SpriteRenderer>(); //get the sprite renderers of all the children
                 foreach (SpriteRenderer item in towerSprite) //change the colour for each sprite renderer it found
                 {
-                    item.color = new Color32(195, 255, 255, 255);
+                    item.color = new Color32(45, 212, 227, 255);
                 }
             }
         }

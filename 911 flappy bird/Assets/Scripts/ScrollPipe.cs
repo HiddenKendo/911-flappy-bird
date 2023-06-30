@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScrollPipe : MonoBehaviour
 {
     float scrollSpeed = 1f;
-    private bool scrollDirection;
     private const float height = 12; //dont change this number
 
     Rigidbody2D rb;
@@ -13,15 +12,15 @@ public class ScrollPipe : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        scrollDirection = (Random.Range(0, 2) == 1);
-        if (scrollDirection)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, scrollSpeed); //change only the y
-        }
-        else
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -scrollSpeed); //change only the y
-        }
+
+        int random;
+        if (Random.Range(1, 3) == 1) //1 to 2
+            random = -1;
+        else random = 1;
+
+        //Debug.Log(random);
+
+        rb.velocity = new Vector2(rb.velocity.x, random * scrollSpeed); //change only the y
     }
 
     private void Update()

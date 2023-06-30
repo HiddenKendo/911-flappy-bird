@@ -27,7 +27,7 @@ public class Plane : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            //rb.velocity = Vector2.up * jumpForce * Mathf.Sign(rb.gravityScale); //Mathf.Sign(rb.gravityScale) return 1 or -1 make it go flip flip
+            rb.gravityScale = 1.5f;
             speedToChangeTo = jumpForce * Mathf.Sign(rb.gravityScale);
             currentVelocity = rb.velocity.y;
             changingSpeed = true;
@@ -58,12 +58,18 @@ public class Plane : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            rb.gravityScale = 10f;
+            rb.gravityScale = 7f;
         }
 
         if (rb.gravityScale > 1.5f)
         {
-            rb.gravityScale -= 0.1f;
+            rb.gravityScale -= 10f * Time.deltaTime;
+            //Debug.Log(rb.gravityScale);
+        }
+
+        if (rb.gravityScale < 1.5f)
+        {
+            rb.gravityScale = 1.5f;
         }
 
         transform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * rotationSpeed); //rotate according to speed
