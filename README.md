@@ -2,7 +2,7 @@
 
 Changelog:  
 
-Alpha 2.1:
+Alpha 2.1:  
 After having our friends playtest the game on a school computer (lol), we've found certain things that need fixing.  
 - One main bug we've discovered is that the speed in which the plane's gravity returns to normal after pressing LeftCtrl is framerate dependent.  
 This bug was caused by an oversight in Plane.cs which was missing Time.delataTime. The updated code should provide an experience closer to what we intended.
@@ -79,8 +79,8 @@ The rotation speed should now be from either -12 to -5 or 5 to 12.
 Same goes for the green towers however I haven't fixed it.
 
 Also the blue towers lag on other people's machine but it works fine on mine so HiddenKendo pls fix I have no idea what I'm doing lol
-
-
+  
+  
 Alpha 2:  
 - Increased Spawn Delay from 0.9 to 1.2
 - Changed sprite for green towers
