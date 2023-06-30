@@ -43,7 +43,8 @@ if (Input.GetKeyDown(KeyCode.LeftControl))
 - Changed Hue of blue towers to make them stand out more
 
 - While playtesting, I noticed that sometimes the blue pipes don't rotate, or rather their rotation is not noticable.  
-This is because the rotation speed is randomly assigned a float from -20 to 20. Which could end up being a number close to 0 which makes the rotation not noticable.  
+This is because the rotation speed is randomly assigned a float from -20 to 20. Which could end up being a number close to 0 which makes the rotation not noticable.
+  
 **Old Code:**   
 ```
 private float maxRot = 20;
