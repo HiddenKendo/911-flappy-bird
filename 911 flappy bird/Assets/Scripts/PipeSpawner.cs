@@ -56,6 +56,16 @@ public class PipeSpawner : MonoBehaviour
                     item.color = new Color32(45, 212, 227, 255);
                 }
             }
+            else if (randomizer < 50)
+            {
+                pipe.gameObject.AddComponent<StutterPipe>();
+                mp.pipeSpeed = 0f;
+                SpriteRenderer[] towerSprite = pipe.GetComponentsInChildren<SpriteRenderer>(); //get the sprite renderers of all the children
+                foreach (SpriteRenderer item in towerSprite) //change the colour for each sprite renderer it found
+                {
+                    item.color = new Color32(255, 154, 46, 255);
+                }
+            }
         }
         else
         {
@@ -64,7 +74,7 @@ public class PipeSpawner : MonoBehaviour
             MovePipe mp = pipe.GetComponent<MovePipe>();
             mp.pipeSpeed = Random.Range(minSpeed, maxSpeed);
         }
-        Destroy(pipe, 10f);
+        Destroy(pipe, 5f);
     }
 
     public void NineEleven()

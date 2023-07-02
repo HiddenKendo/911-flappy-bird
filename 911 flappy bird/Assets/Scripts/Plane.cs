@@ -99,10 +99,12 @@ public class Plane : MonoBehaviour
 
             rb.AddForce(new Vector2(Random.Range(2, 5), Random.Range(2, 5)), ForceMode2D.Impulse); //push plane to upper right so it doesnt stay still
             GameManager.instance.GameOver();
+
+            PipeSpawner ps = FindObjectOfType<PipeSpawner>();
+            ps.maxTime = 0.1f;
+            ps.NineEleven();
         }
 
-        PipeSpawner ps = FindObjectOfType<PipeSpawner>();
-        ps.maxTime = 0.1f;
-        ps.NineEleven();
+        
     }
 }

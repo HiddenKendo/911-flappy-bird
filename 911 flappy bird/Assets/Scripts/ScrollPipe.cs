@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ScrollPipe : MonoBehaviour
 {
-    float scrollSpeed = 1f;
+    float minSpeed = 0.8f;
+    float maxSpeed = 1f;
+    private float scrollSpeed;
+
     private const float height = 12; //dont change this number
 
     Rigidbody2D rb;
@@ -13,14 +16,22 @@ public class ScrollPipe : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        int random;
-        if (Random.Range(1, 3) == 1) //1 to 2
-            random = -1;
-        else random = 1;
+        int direction; // the direction the pipe scrolls is dependent on its spawn in y-axis to prevent impossible spawns
+        if (transform.position.y > 1.1f)
+        {
+            direction = -1;
+        }
+        else if (transform.position.y < -1.1f)
+        {
+            direction = 1;
+        }
+        else
+        {
+            direction = ((Random.Range(0, 2) * 2) - 1); // better random -1 or 1
+        }
 
-        //Debug.Log(random);
-
-        rb.velocity = new Vector2(rb.velocity.x, random * scrollSpeed); //change only the y
+        scrollSpeed = Random.Range(minSpeed, maxSpeed);
+        rb.velocity = new Vector2(rb.velocity.x, direction * scrollSpeed); //change only the y
     }
 
     private void Update()

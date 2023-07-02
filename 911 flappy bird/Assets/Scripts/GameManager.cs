@@ -38,4 +38,15 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    //this may very well be inefficient because I don't understand how GameManagers work but here we go. Kendo pls fix.
+    public void Update()
+    {
+        if (gameOver && Input.GetKeyDown(KeyCode.Space))
+        {
+            RestartGame();
+        }
+    }
 }
+
+    
